@@ -1,4 +1,6 @@
 # KOA demo
+middleware -> api -> service -> model
+middleware -> api -> service -> web3
 
 ## sql database
 [knex document](https://knexjs.org/)

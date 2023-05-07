@@ -2,13 +2,15 @@ const Router = require('@koa/router')
 
 module.exports = function initTestApi() {
   const router = new Router()
+
   router.get('/', ctx => {
-    ctx.body = "hello, I'm ppz"
+    ctx.respond.json("hello, I'm ppz")
   })
 
-  router.post('/koa-bodyparser', ctx => {
+  router.post('/middleware/body', ctx => {
     console.log(ctx.request.body)
-    ctx.body = 'koa-bodyparser'
+    ctx.respond.json(ctx.request.body)
   })
+
   return router
 }
