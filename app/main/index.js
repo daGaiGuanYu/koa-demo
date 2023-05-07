@@ -1,7 +1,7 @@
-import Koa from 'koa'
-import initRouter from './router.js'
-import log from '../common/log.js'
-import { server as serverConfig } from '../config.js'
+const Koa = require('koa')
+const initRouter = require('./router.js')
+const log = require('../common/log.js')
+const { server: serverConfig } = require('../config.js')
 
 async function main() {
   log.info('nybl server starting')

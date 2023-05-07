@@ -1,9 +1,9 @@
-import Knex from 'knex'
-import Path from 'path'
-import log from '../common/log.js'
+const Knex = require('knex')
+const Path = require('path')
+const log = require('../common/log.js')
 
-export default function getConnection() {
-  const dbPath = Path.join(import.meta.url, '../_.db')
+module.exports = function getConnection() {
+  const dbPath = Path.join(__dirname, '_.db')
   log.info('connecting db:', dbPath)
   return new Knex({
     client: 'better-sqlite3',

@@ -1,6 +1,6 @@
-import initTestApi from '../api/test.js'
+const initTestApi = require('../api/test.js')
 
-export default function initRouter(app) {
+module.exports = function initRouter(app) {
   for(const initApi of [
     initTestApi
   ]) {

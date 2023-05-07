@@ -1,3 +1,3 @@
-export const server = {
+exports.server = {
   port: 3000
 }

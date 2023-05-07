@@ -1,6 +1,6 @@
-import Router from '@koa/router'
+const Router = require('@koa/router')
 
-export default function initTestApi() {
+module.exports = function initTestApi() {
   const router = new Router()
   router.get('/', function(ctx) {
     ctx.response.res.end("hello, I'm ppz")

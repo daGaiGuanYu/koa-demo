@@ -1,3 +1,3 @@
-import getConnection from './connection.js'
+const getConnection = require('./connection.js')
 
 getConnection()
