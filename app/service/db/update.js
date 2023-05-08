@@ -4,5 +4,5 @@ function update_updated_at(record) {
 
 exports.update = async function simpleUpdate(table, id, record) {
   update_updated_at(record)
-  await table.where('id', id).update(record)
+  return await table.where('id', id).update(record)
 }

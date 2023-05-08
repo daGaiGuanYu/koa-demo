@@ -1,0 +1,1 @@
+module.exports = require('./_restful').simple('demo')
