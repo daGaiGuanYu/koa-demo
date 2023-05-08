@@ -2,6 +2,7 @@ const Router = require('@koa/router')
 const { insert } = require('../service/db/insert')
 const { update } = require('../service/db/update')
 const { retrieve_by_id } = require('../service/db/retrieve')
+const { del_by_id } = require('../service/db/del')
 
 module.exports = function initTestApi() {
   const router = new Router()
@@ -32,6 +33,12 @@ module.exports = function initTestApi() {
   router.post('/restful/:id', async ({ request, params, respond, knex }) => {
     await respond.json(
       await update(knex.demo, params.id, request.body)
+    )
+  })
+
+  router.delete('/restful/:id', async ({ params, respond, knex }) => {
+    await respond.json(
+      await del_by_id(knex.demo, params.id)
     )
   })
 
