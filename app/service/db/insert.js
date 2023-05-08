@@ -9,7 +9,7 @@ function addId(record) {
   record.id = uuid()
 }
 
-exports.insert = async function(table, record) {
+exports.insert = async function simpleInsert(table, record) {
   addId(record)
   addTimestamps(record)
   await table.insert(record)
