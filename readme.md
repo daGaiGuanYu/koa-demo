@@ -35,3 +35,4 @@ knex migrate:latest
 
 ## TODO
 + 404
++ 不要 migration

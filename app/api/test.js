@@ -1,4 +1,5 @@
 const Router = require('@koa/router')
+const { insert } = require('../service/db/insert')
 
 module.exports = function initTestApi() {
   const router = new Router()
@@ -14,6 +15,12 @@ module.exports = function initTestApi() {
 
   router.get('/restful', async ({ respond, knex }) => {
     await respond.json(await knex.demo)
+  })
+
+  router.post('/restful', async ({ request, respond, knex }) => {
+    await respond.json(
+      await insert(knex.demo, request.body)
+    )
   })
 
   return router
