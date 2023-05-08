@@ -1,10 +1,19 @@
 class Respond {
+  #responded = false
   constructor(ctx) {
     this.ctx = ctx
-    this.responded = false
+  }
+  get responded() {
+    return this.#responded
+  }
+
+  #markResponded() {
+    if(this.#responded)
+      throw Error('already responded')
+    this.#responded = true
   }
   json(data) {
-    this.responded = true
+    this.#markResponded()
     this.ctx.body = JSON.stringify(data)
   }
 }

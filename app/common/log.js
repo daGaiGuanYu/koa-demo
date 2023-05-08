@@ -1,6 +1,9 @@
 const { now } = require('./utils.js')
 
 module.exports = {
+  debug() {
+    console.debug(`[debug ${now()}]`, ...arguments)
+  },
   info() {
     console.log(`[info ${now()}]`, ...arguments)
   },

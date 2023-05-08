@@ -12,5 +12,9 @@ module.exports = function initTestApi() {
     ctx.respond.json(ctx.request.body)
   })
 
+  router.get('/restful', async ({ respond, knex }) => {
+    await respond.json(await knex.demo)
+  })
+
   return router
 }
