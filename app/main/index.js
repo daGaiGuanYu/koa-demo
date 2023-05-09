@@ -5,8 +5,8 @@ const KoaSession = require('koa-session')
 
 const log = require('../common/log.js')
 const { server: server_config } = require('../config.js')
-const { make_response_middleware } = require('../middleware/response.js')
-const debug_middleware = require('../middleware/debug')
+const { make_response_middleware } = require('../pop/middleware/response.js')
+const debug_middleware = require('../pop/middleware/debug')
 
 const init_router = require('./router.js')
 const make_model_middleware = require('./model.js')

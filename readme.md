@@ -7,7 +7,7 @@
 
 适合用于小玩意，当然，也只能用于小玩意。
 
-## 面向过程
+## pop
 + middleware -> api -> service -> model
 + middleware -> api -> service -> web3
 
@@ -27,7 +27,7 @@ npm install -g knex
 
 ##### 数据迁移
 ``` bash
-cd app/model
+cd app/pop/model
 knex migrate:latest
 ```
 

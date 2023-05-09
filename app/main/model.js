@@ -1,4 +1,4 @@
-const init_model = require('../model')
+const init_model = require('../pop/model')
 
 module.exports = function make_model_middleware() {
   const model = init_model()

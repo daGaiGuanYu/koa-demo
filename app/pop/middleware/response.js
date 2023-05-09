@@ -22,7 +22,7 @@ class Respond {
   }
   _() {
     this.#mark_responded()
-    this.ctx.res.end()
+    this.ctx.body = ''
   }
 }
 
