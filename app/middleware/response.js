@@ -16,6 +16,14 @@ class Respond {
     this.#mark_responded()
     this.ctx.body = JSON.stringify(data)
   }
+  str(msg) {
+    this.#mark_responded()
+    this.ctx.body = msg
+  }
+  _() {
+    this.#mark_responded()
+    this.ctx.res.end()
+  }
 }
 
 function make_response_middleware(_Respond = Respond) {

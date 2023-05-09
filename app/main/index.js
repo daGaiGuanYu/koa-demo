@@ -1,17 +1,18 @@
 require('@ppzp/meta')
 const Koa = require('koa')
 const BodyParser = require('koa-bodyparser')
+const KoaSession = require('koa-session')
 
 const log = require('../common/log.js')
 const { server: server_config } = require('../config.js')
 const { make_response_middleware } = require('../middleware/response.js')
+const debug_middleware = require('../middleware/debug')
 
 const init_router = require('./router.js')
 const make_model_middleware = require('./model.js')
-const debug_middleware = require('../middleware/debug')
 
 async function main() {
-  log.info('nybl server starting')
+  log.info('ppz server starting')
   const app = new Koa()
 
   // debug
@@ -22,11 +23,14 @@ async function main() {
   app.use(BodyParser())
   // db: 加装 ctx.knex
   app.use(make_model_middleware())
-
+  // session
+  app.keys = ['PPZ']
+  app.use(KoaSession(app))
+  
   init_router(app)
 
   app.listen(server_config.port, function() {
-    log.info('nybl server started on', server_config.port)
+    log.info('ppz server started on', server_config.port)
   })
 }
 

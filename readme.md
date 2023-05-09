@@ -8,8 +8,8 @@
 适合用于小玩意，当然，也只能用于小玩意。
 
 ## 面向过程
-middleware -> api -> service -> model
-middleware -> api -> service -> web3
++ middleware -> api -> service -> model
++ middleware -> api -> service -> web3
 
 ## sql database
 [knex document](https://knexjs.org/)

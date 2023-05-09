@@ -17,27 +17,27 @@ module.exports = function init_test_api() {
   })
 
   router.get('/restful', async ({ respond, knex }) => {
-    await respond.json(await knex.demo)
+    respond.json(await knex.demo)
   })
 
   router.get('/restful/:id', async ({ params, respond, knex }) => {
-    await respond.json(await retrieve_by_id(knex.demo, params.id))
+    respond.json(await retrieve_by_id(knex.demo, params.id))
   })
 
   router.post('/restful', async ({ request, respond, knex }) => {
-    await respond.json(
+    respond.json(
       await insert(knex.demo, request.body)
     )
   })
 
   router.post('/restful/:id', async ({ request, params, respond, knex }) => {
-    await respond.json(
+    respond.json(
       await update(knex.demo, params.id, request.body)
     )
   })
 
   router.delete('/restful/:id', async ({ params, respond, knex }) => {
-    await respond.json(
+    respond.json(
       await del_by_id(knex.demo, params.id)
     )
   })
