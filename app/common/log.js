@@ -1,4 +1,4 @@
-const { now } = require('./utils.js')
+const now = () => new Date().format()
 
 module.exports = {
   debug() {

@@ -1,3 +1,4 @@
+require('@ppzp/meta')
 const Koa = require('koa')
 const BodyParser = require('koa-bodyparser')
 
