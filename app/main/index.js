@@ -2,30 +2,30 @@ const Koa = require('koa')
 const BodyParser = require('koa-bodyparser')
 
 const log = require('../common/log.js')
-const { server: serverConfig } = require('../config.js')
-const { makeResponseMiddleware } = require('../middleware/response.js')
+const { server: server_config } = require('../config.js')
+const { make_response_middleware } = require('../middleware/response.js')
 
-const initRouter = require('./router.js')
-const makeModelMiddleware = require('./model.js')
-const debugMiddleware = require('../middleware/debug')
+const init_router = require('./router.js')
+const make_model_middleware = require('./model.js')
+const debug_middleware = require('../middleware/debug')
 
 async function main() {
   log.info('nybl server starting')
   const app = new Koa()
 
   // debug
-  app.use(debugMiddleware)
+  app.use(debug_middleware)
   // http response: 加装 ctx.respond
-  app.use(makeResponseMiddleware())
+  app.use(make_response_middleware())
   // http request support json, form, test. for multipart use @koa/multer
   app.use(BodyParser())
   // db: 加装 ctx.knex
-  app.use(makeModelMiddleware())
+  app.use(make_model_middleware())
 
-  initRouter(app)
+  init_router(app)
 
-  app.listen(serverConfig.port, function() {
-    log.info('nybl server started on', serverConfig.port)
+  app.listen(server_config.port, function() {
+    log.info('nybl server started on', server_config.port)
   })
 }
 

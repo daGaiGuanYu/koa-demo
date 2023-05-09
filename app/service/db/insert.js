@@ -1,17 +1,17 @@
 const { v4: uuid } = require('uuid')
 
-function addTimestamps(record) {
+function add_timestamps(record) {
   record.created_at = new Date()
   record.updated_at = new Date()
 }
 
-function addId(record) {
+function add_id(record) {
   record.id = uuid()
 }
 
-exports.insert = async function simpleInsert(table, record) {
-  addId(record)
-  addTimestamps(record)
+exports.insert = async function simple_insert(table, record) {
+  add_id(record)
+  add_timestamps(record)
   await table.insert(record)
   return record.id
 }

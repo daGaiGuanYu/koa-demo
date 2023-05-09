@@ -7,19 +7,19 @@ class Respond {
     return this.#responded
   }
 
-  #markResponded() {
+  #mark_responded() {
     if(this.#responded)
       throw Error('already responded')
     this.#responded = true
   }
   json(data) {
-    this.#markResponded()
+    this.#mark_responded()
     this.ctx.body = JSON.stringify(data)
   }
 }
 
-function makeResponseMiddleware(_Respond = Respond) {
-  return async function responseMiddleware(ctx, next) {
+function make_response_middleware(_Respond = Respond) {
+  return async function response_middleware(ctx, next) {
     if(ctx.respond !== undefined)
       throw Error('ctx.respond already exists')
     ctx.respond = new _Respond(ctx)
@@ -32,5 +32,5 @@ function makeResponseMiddleware(_Respond = Respond) {
 
 module.exports = {
   Respond,
-  makeResponseMiddleware
+  make_response_middleware
 }

@@ -4,7 +4,7 @@ const { update } = require('../service/db/update')
 const { retrieve_by_id } = require('../service/db/retrieve')
 const { del_by_id } = require('../service/db/del')
 
-module.exports = function initTestApi() {
+module.exports = function init_test_api() {
   const router = new Router()
 
   router.get('/', ctx => {
