@@ -2,7 +2,7 @@
   "name": "nsad",
   "version": "0.0.0",
   "scripts": {
-    "dev": "pm2 start app/main/index.coffee --name nsad --watch --no-daemon",
+    "dev": "nodemon app/main/index.coffee",
     "pro": "pm2 start app/main/index.coffee --name nsad"
   },
   "dependencies": {
@@ -15,5 +15,8 @@
     "koa-bodyparser": "^4.4.0",
     "koa-session": "^6.4.0",
     "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }

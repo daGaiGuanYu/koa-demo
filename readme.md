@@ -10,17 +10,6 @@
 适合用于小玩意，当然，也只能用于小玩意。
 
 ## 走起~
-除了必要的 Node.js 和 NPM（NPM 一般随 Node.js 一起安装），还建议使用 [pm2](https://zhuanlan.zhihu.com/p/628238542) 启动开发、生产应用：
-``` bash
-npm install -g pm2 # 可能需要 sudo
-```
-
-主要使用了 PM2 的两个功能：
-+ 规范的日志（存到文件）
-+ 启动应用（应用崩了，会帮你重启；服务器重启时，也会帮你自动启动应用）
-
-> 但 PM2 不是必要的，如果你不喜欢，可以跳过 development、production 部分
-
 ##### development
 ``` bash
 npm install
@@ -28,16 +17,26 @@ npm run dev
 ```
 
 ##### production
-``` bash
-npm install
-npm run pro
-```
-
-##### 不喜欢 pm2
-启动项目：
+可以直接使用 node 跑起来应用：
 ``` bash
 npm install
 node app/main/index.js
+```
+如果你想在退出终端时，保持程序运行，可以看看 nohup 的用法
+
+如果，如果你需要：
++ 规范的日志（存到文件）
++ 启动应用（应用崩了，会帮你重启；服务器重启时，也会帮你自动启动应用）
+
+那么，建议生产环境使用 [pm2](https://zhuanlan.zhihu.com/p/628238542) 启动应用（而非上面那种直接使用 Node.js 的方式）
+``` bash
+npm install -g pm2 # 可能需要 sudo
+```
+
+安装 PM2 之后：
+``` bash
+npm install # 安装应用依赖
+npm run pro # 启动应用
 ```
 
 ## 开发指引
@@ -46,4 +45,3 @@ node app/main/index.js
 ## TODO
 + 404
 + 不要 migration
-+ watch js/coffee ONLY
