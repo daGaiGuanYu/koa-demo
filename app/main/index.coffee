@@ -5,7 +5,7 @@ KoaSession = require 'koa-session'
 log = require '@ppzp/log'
 
 { server: server_config } = require('../config')
-{ make_response_middleware } = require('../pop/middleware/response.js')
+{ make_response_middleware } = require('../pop/middleware/response')
 debug_middleware = require('../pop/middleware/debug')
 
 init_router = require('./router')
