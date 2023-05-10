@@ -2,8 +2,8 @@
   "name": "nsad",
   "version": "0.0.0",
   "scripts": {
-    "dev": "pm2 start app/main/index.js --name nsad --watch --no-daemon",
-    "pro": "pm2 start app/main/index.js --name nsad"
+    "dev": "pm2 start app/main/index.coffee --name nsad --watch --no-daemon",
+    "pro": "pm2 start app/main/index.coffee --name nsad"
   },
   "dependencies": {
     "@koa/router": "^12.0.0",

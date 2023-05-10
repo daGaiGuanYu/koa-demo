@@ -46,3 +46,4 @@ node app/main/index.js
 ## TODO
 + 404
 + 不要 migration
++ watch js/coffee ONLY
