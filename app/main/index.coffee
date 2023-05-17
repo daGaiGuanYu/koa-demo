@@ -4,7 +4,7 @@ BodyParser = require 'koa-bodyparser'
 KoaSession = require 'koa-session'
 log = require '@ppzp/log'
 
-{ server: server_config } = require('../config')
+Config = require('../config')
 { make_response_middleware } = require('../pop/middleware/response')
 debug_middleware = require('../pop/middleware/debug')
 
@@ -13,6 +13,7 @@ make_model_middleware = require('./model')
 
 do ->
   log.info 'nsad starting'
+  log.info 'Config:', JSON.stringify Config
   app = new Koa()
 
   # debug
@@ -30,7 +31,7 @@ do ->
   init_router app
 
   app.listen(
-    server_config.port
+    Config.development.server.port
     ->
-      log.info 'nsad started on', server_config.port
+      log.info 'nsad started on', Config.development.server.port
   )
